@@ -44,6 +44,13 @@ disablewallet=${BTC_DISABLEWALLET:-1}
 # Enable an on-disk txn index. Allows use of getrawtransaction for txns not in
 # mempool.
 txindex=${BTC_TXINDEX:-0}
+
+dbcache=100
+maxorphantx=10
+maxmempool=50
+maxconnections=20
+maxuploadtarget=5000
+
 EOF
 fi
 
