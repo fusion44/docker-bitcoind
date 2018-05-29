@@ -2,8 +2,6 @@
 
 set -exuo pipefail
 
-TAG=${1:-latest}
-
-docker build --no-cache -t jamesob/bitcoind:${TAG} .
+docker build --no-cache -t fusion44/bitcoind-rpi:latest
 docker login
-docker push jamesob/bitcoind:${TAG}
+docker push fusion44/bitcoind-rpi:latest
