@@ -34,6 +34,10 @@ rpcallowip=${BTC_RPCALLOWIP:-::/0}
 # Listen for RPC connections on this TCP port:
 rpcport=${BTC_RPCPORT:-8332}
 
+# Enable ZMQ
+zmqpubrawblock=tcp://0.0.0.0:28332
+zmqpubrawtx=tcp://0.0.0.0:28332
+
 # Print to console (stdout) so that "docker logs bitcoind" prints useful
 # information.
 printtoconsole=${BTC_PRINTTOCONSOLE:-1}
@@ -55,7 +59,7 @@ EOF
 fi
 
 if [ $# -eq 0 ]; then
-  exec bitcoind -datadir=${BITCOIN_DIR} -conf=${BITCOIN_CONF} "${BTC_RUN_ARGS}"
+  exec bitcoind -datadir=${BITCOIN_DIR} -conf=${BITCOIN_CONF}
 else
   exec "$@"
 fi
